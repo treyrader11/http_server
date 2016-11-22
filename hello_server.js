@@ -24,6 +24,11 @@ app.get('/jedi/:firstname/:lastname', function(request, response) {
    // console.log(first, last);
 });
 
+
+
+
+//read the Node docs for IncomingMessage. request inherits from this.
+
 app.get('/headers', function(request, response) {
     var headers = request.headers;
     var host = headers.host;
@@ -40,6 +45,15 @@ app.get('/headers/:header_name', function(request, response) {
     
     response.json({
         value: request.headers[value]
+    });
+});
+
+app.get('/version', function(request, response) {
+    var version = request.httpVersion;
+    console.log(version);
+    
+    response.json({
+        "version": version
     });
 });
 
